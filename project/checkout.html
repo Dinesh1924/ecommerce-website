@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout – SHE.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.</span>in</a>
+    <div style="flex:1;text-align:center;color:rgba(255,255,255,.8);font-size:14px;">🔒 Secure Checkout — Your data is encrypted</div>
+  </div>
+</header>
+
+<div class="steps">
+  <div class="steps-inner">
+    <div class="step done"><div class="step-circle">✓</div> Cart</div>
+    <div class="step-line done"></div>
+    <div class="step active"><div class="step-circle">2</div> Checkout</div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-circle">3</div> Payment</div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-circle">4</div> Confirmation</div>
+  </div>
+</div>
+
+<div class="page">
+  <div>
+    <!-- DELIVERY ADDRESS -->
+    <div class="box">
+      <h3>📍 Delivery Address</h3>
+      <div class="addr-option active" onclick="selectAddr(this)">
+        <input type="radio" name="addr" checked>
+        <div class="addr-text"><strong>Priya Sharma</strong> (Home)<br>42, Andheri West, Near Infinity Mall<br>Mumbai, Maharashtra – 400053 · 📞 +91 98765 43210</div>
+      </div>
+      <div class="addr-option" onclick="selectAddr(this)">
+        <input type="radio" name="addr">
+        <div class="addr-text"><strong>Priya Sharma</strong> (Office)<br>SHE Tech Park, Tower B, 5th Floor, BKC<br>Mumbai, Maharashtra – 400051 · 📞 +91 98765 43210</div>
+      </div>
+      <button onclick="toggleNewAddr()" style="background:none;border:2px dashed var(--border);border-radius:10px;padding:12px 20px;width:100%;font-size:13px;cursor:pointer;color:var(--gray);font-family:'DM Sans',sans-serif;margin-top:4px;">+ Add New Address</button>
+      <div id="newAddrForm" style="display:none;margin-top:16px;">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input placeholder="Enter full name"></div>
+          <div class="form-group"><label>Phone Number</label><input placeholder="+91 XXXXX XXXXX"></div>
+          <div class="form-group full"><label>Address Line 1</label><input placeholder="House No., Building, Street"></div>
+          <div class="form-group full"><label>Address Line 2</label><input placeholder="Landmark, Area (optional)"></div>
+          <div class="form-group"><label>City</label><input placeholder="City"></div>
+          <div class="form-group"><label>State</label><select><option>Maharashtra</option><option>Delhi</option><option>Karnataka</option><option>Tamil Nadu</option><option>Gujarat</option></select></div>
+          <div class="form-group"><label>PIN Code</label><input placeholder="6-digit PIN code"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELIVERY OPTION -->
+    <div class="box">
+      <h3>🚚 Delivery Option</h3>
+      <div class="addr-option active" onclick="selectAddr(this)">
+        <input type="radio" name="delivery" checked>
+        <div>
+          <div style="font-weight:600;font-size:14px;">Standard Delivery — FREE</div>
+          <div style="font-size:12px;color:var(--gray);">Arrives by Tomorrow, 10 Mar 2025 · SHE Prime</div>
+        </div>
+      </div>
+      <div class="addr-option" onclick="selectAddr(this)">
+        <input type="radio" name="delivery">
+        <div>
+          <div style="font-weight:600;font-size:14px;">Express Delivery — ₹99</div>
+          <div style="font-size:12px;color:var(--gray);">Arrives Today by 10 PM · Guaranteed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="box">
+      <h3>💳 Payment Method</h3>
+      <div class="pay-option active" onclick="selectPay(this)">
+        <input type="radio" name="pay" checked>
+        <div class="pay-icon-big" style="background:#1a3a6b;">VISA</div>
+        <div><div style="font-weight:600;font-size:14px;">Saved Card •••• 4532</div><div style="font-size:12px;color:var(--gray);">Priya Sharma · Expires 08/27</div></div>
+      </div>
+      <div class="pay-option" onclick="selectPay(this)">
+        <input type="radio" name="pay">
+        <div class="pay-icon-big" style="background:#ff6b00;">UPI</div>
+        <div><div style="font-weight:600;font-size:14px;">UPI Payment</div><div style="font-size:12px;color:var(--gray);">priya.sharma@okaxis</div></div>
+      </div>
+      <div class="pay-option" onclick="selectPay(this)">
+        <input type="radio" name="pay">
+        <div class="pay-icon-big" style="background:#00a651;">EMI</div>
+        <div><div style="font-weight:600;font-size:14px;">No-Cost EMI</div><div style="font-size:12px;color:var(--gray);">Starting ₹273/month · 0% interest</div></div>
+      </div>
+      <div class="pay-option" onclick="selectPay(this)">
+        <input type="radio" name="pay">
+        <div class="pay-icon-big" style="background:var(--charcoal);">COD</div>
+        <div><div style="font-weight:600;font-size:14px;">Cash on Delivery</div><div style="font-size:12px;color:var(--gray);">Pay when you receive your order</div></div>
+      </div>
+      <div class="pay-option" onclick="selectPay(this)">
+        <input type="radio" name="pay">
+        <div class="pay-icon-big" style="background:var(--rose);">+ NEW</div>
+        <div><div style="font-weight:600;font-size:14px;">Add New Card</div><div style="font-size:12px;color:var(--gray);">Visa, Mastercard, RuPay accepted</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="box">
+      <h3>🛍 Order Summary</h3>
+      <div class="order-item">
+        <div class="order-item-img" style="background:#fde8f0"><img src='src/kurti.webp'></div>
+        <div class="order-item-name">Floral Anarkali Kurta Set</div>
+        <div class="order-item-price">₹799</div>
+      </div>
+      <div class="order-item">
+        <div class="order-item-img" style="background:#fff0f5"><img src='src/lipstick.webp'></div>
+        <div class="order-item-name">Matte Lipstick Set ×2</div>
+        <div class="order-item-price">₹998</div>
+      </div>
+      <div class="order-item">
+        <div class="order-item-img" style="background:#e8f4fd"><img src='src/samsungbud.webp'></div>
+        <div class="order-item-name">Samsung Galaxy Buds 3</div>
+        <div class="order-item-price">₹4,999</div>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+      <div class="summary-row"><span>Subtotal (4 items)</span><span>₹6,796</span></div>
+      <div class="summary-row"><span>Delivery</span><span class="green">FREE</span></div>
+      <div class="summary-row"><span>You Saved</span><span class="green">₹10,201</span></div>
+      <div class="summary-row total"><span>Total</span><span>₹6,796</span></div>
+      <div style="background:#e8f4fd;border-radius:8px;padding:10px 14px;font-size:12px;color:#2b6cb0;margin-top:12px;">💳 Get 10% instant discount with SHE Pay Card</div>
+      <button class="btn-place" onclick="placeOrder()">🎉 Place Order — ₹6,796</button>
+      <div style="text-align:center;font-size:11px;color:var(--gray);margin-top:10px;">🔒 Your payment info is 100% secure</div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">🎉</div>
+    <h2>Order Placed!</h2>
+    <p>Yay! Your order has been confirmed and will be delivered to you soon. A confirmation has been sent to priya.sharma@email.com</p>
+    <div class="order-num">Order #SHE-2025-<span id="orderId"></span></div>
+    <div class="success-btns">
+      <a href="account.html" class="sbtn sbtn-rose" onclick="window.print()">Generate receipt</a>
+      <a href="index.html" class="sbtn sbtn-outline">Continue Shopping</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="index.html">SHE.in</a> — Made with 💖 in India</p>
+</footer>
+
+<script src="javascript/checkout.js"></script>
+</body>
+</html>

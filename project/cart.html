@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart – SHE.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<div class="topbar">🎉 Free delivery on orders above ₹499 &nbsp;|&nbsp; You're saving big today!</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.</span>in</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more..." />
+      <button>🔍</button>
+    </div>
+    <div style="display:flex;gap:4px;">
+      <a href="account.html" class="hbtn"><span class="icon">👤</span><strong>Account</strong></a>
+      <a href="orders.html" class="hbtn"><span class="icon">📦</span><strong>Orders</strong></a>
+      <a href="cart.html" class="hbtn"><span class="icon">🛒<span class="cart-count" id="cartCount">0</span></span><strong>Cart</strong></a>
+    </div>
+  </div>
+</header>
+
+<div class="steps">
+  <div class="steps-inner">
+    <div class="step done"><div class="step-circle">✓</div> Shopping Cart</div>
+    <div class="step-line done"></div>
+    <div class="step active"><div class="step-circle">2</div> Checkout</div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-circle">3</div> Payment</div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-circle">4</div> Order Placed</div>
+  </div>
+</div>
+
+<div class="page">
+  <div>
+    <div class="cart-box" id="cartBox">
+      <h2>🛒 Your Shopping Cart</h2>
+      <div id="cartItems"></div>
+    </div>
+  </div>
+
+  <div class="summary" id="summaryBox">
+    <h2>Order Summary</h2>
+    <div class="summary-row"><span>Subtotal (<span id="itemCount">0</span> items)</span><span id="subtotal">₹0</span></div>
+    <div class="summary-row"><span>Delivery Charges</span><span class="green">FREE</span></div>
+    <div class="summary-row"><span>You Saved</span><span class="green" id="savedAmt">₹0</span></div>
+    <div class="summary-row total"><span>Total Amount</span><span id="totalAmt">₹0</span></div>
+    <div class="coupon-box">
+      <label>🏷 Apply Coupon</label>
+      <div class="coupon-input">
+        <input type="text" placeholder="Enter coupon code" id="couponInput">
+        <button onclick="applyCoupon()">Apply</button>
+      </div>
+    </div>
+    <button class="btn-checkout" onclick="checkout()">Proceed to Checkout →</button>
+    <button class="btn-continue" onclick="location.href='index.html'">← Continue Shopping</button>
+    <div class="payment-icons">
+      <span class="pay-icon">VISA</span><span class="pay-icon">MC</span><span class="pay-icon">UPI</span><span class="pay-icon">EMI</span><span class="pay-icon">COD</span>
+    </div>
+    <div class="assurance">
+      <div class="assurance-item">✅ 100% Secure Payments</div>
+      <div class="assurance-item">🔄 Easy 10-Day Returns</div>
+      <div class="assurance-item">🚚 Free Delivery on this Order</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="index.html">SHE.in</a> — Made with 💖 in India</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="javascript/cart.js"></script>
+</body>
+</html>

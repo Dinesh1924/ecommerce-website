@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account – SHE.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/account.css">
+  
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.</span>in</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products..."/>
+      <button>🔍</button>
+    </div>
+    <div style="display:flex;gap:4px;">
+      <a href="account.html" class="hbtn"><span class="icon">👤</span><strong>Account</strong></a>
+      <a href="orders.html" class="hbtn"><span class="icon">📦</span><strong>Orders</strong></a>
+      <a href="cart.html" class="hbtn"><span class="icon">🛒<span class="cart-count" id="cartCount">0</span></span><strong>Cart</strong></a>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <!-- SIDEBAR -->
+  <aside class="account-sidebar">
+    <div class="user-hero">
+      <div class="user-avatar"><img src="src/girl.jpg"></div>
+      <h3 id="sidebarName">Priya Sharma</h3>
+      <p id="sidebarEmail">priya.sharma@email.com</p>
+      <div class="prime-badge">⭐ SHE Prime Member</div>
+    </div>
+    <div class="sidebar-menu">
+      <a href="#" class="menu-item active" onclick="showSection('dashboard',this)"><span class="mi">🏠</span> Dashboard</a>
+      <a href="#" class="menu-item" onclick="showSection('orders',this)"><span class="mi">📦</span> My Orders</a>
+      <a href="#" class="menu-item" onclick="showSection('wishlist',this)"><span class="mi">❤️</span> Wishlist <span style="background:var(--rose);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;margin-left:auto;">4</span></a>
+      <a href="#" class="menu-item" onclick="showSection('addresses',this)"><span class="mi">📍</span> Addresses</a>
+      <a href="#" class="menu-item" onclick="showSection('profile',this)"><span class="mi">👤</span> Profile</a>
+      <hr class="menu-divider">
+      <a href="#" class="menu-item" onclick="showSection('payments',this)"><span class="mi">💳</span> Saved Payments</a>
+      <a href="#" class="menu-item" onclick="showSection('returns',this)"><span class="mi">🔄</span> Returns & Refunds</a>
+      <hr class="menu-divider">
+      <a href="index.html" class="menu-item"><span class="mi">🚪</span> Sign Out</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="account-content">
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="content-section">
+      <div class="section-title">👋 Welcome back, Priya!</div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">23</div><div class="lbl">Total Orders</div></div>
+        <div class="stat-card"><div class="num">4</div><div class="lbl">Wishlist Items</div></div>
+        <div class="stat-card"><div class="num">2</div><div class="lbl">Saved Addresses</div></div>
+        <div class="stat-card"><div class="num">₹1,240</div><div class="lbl">SHE Credits</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--rose),var(--rose-dark));border-radius:14px;padding:24px;color:#fff;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:13px;opacity:.8;margin-bottom:6px;">⭐ SHE Prime Member</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;">Your Prime membership is active!</div>
+          <div style="font-size:13px;opacity:.8;margin-top:6px;">Free fast delivery + Exclusive deals + Early access to sales</div>
+        </div>
+        <div style="font-size:60px;">⭐</div>
+      </div>
+    </div>
+
+    <!-- ORDERS -->
+    <div id="orders" class="content-section" style="display:none;">
+      <div class="section-title">📦 My Orders</div>
+      
+      <div class="order-card">
+        <div class="order-header">
+          <div><div class="order-id">Order #SHE-2025-78432</div><div style="font-size:12px;color:var(--gray);margin-top:2px;">Placed: 5 March 2025</div></div>
+          <span class="order-status status-delivered">✓ Delivered</span>
+        </div>
+        <div class="order-items">
+          <div class="order-item">
+            <div class="order-item-img" style="background:#fde8f0"><img src="src/kurti.webp"></div>
+            <div class="order-item-info"><div class="name">Floral Anarkali Kurta Set</div><div class="price">₹799</div></div>
+          </div>
+          <div class="order-item">
+            <div class="order-item-img" style="background:#fff0f5"><img src="src/lipstick.webp"></div>
+            <div class="order-item-info"><div class="name">Matte Lipstick Set</div><div class="price">₹499</div></div>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-total">Total: ₹1,298</div>
+          <div class="order-actions">
+            <button class="btn-sm" onclick="showToast('📄 Invoice downloaded!')">Invoice</button>
+            <button class="btn-sm" onclick="location.href='product.html?id=1'">Buy Again</button>
+            <button class="btn-sm rose" onclick="showToast('⭐ Opening review form...')">Rate</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card">
+        <div class="order-header">
+          <div><div class="order-id">Order #SHE-2025-77901</div><div style="font-size:12px;color:var(--gray);margin-top:2px;">Placed: 1 March 2025</div></div>
+          <span class="order-status status-shipped">🚚 Out for Delivery</span>
+        </div>
+        <div class="order-items">
+          <div class="order-item">
+            <div class="order-item-img" style="background:#e8f4fd"><img src="src/samsungbud.webp"></div>
+            <div class="order-item-info"><div class="name">Samsung Galaxy Buds 3</div><div class="price">₹4,999</div></div>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-total">Total: ₹4,999</div>
+          <div class="order-actions">
+            <button class="btn-sm" onclick="showToast('📍 Tracking your order...')">Track Order</button>
+            <button class="btn-sm" onclick="showToast('❌ Cancellation requested')">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card">
+        <div class="order-header">
+          <div><div class="order-id">Order #SHE-2025-77012</div><div style="font-size:12px;color:var(--gray);margin-top:2px;">Placed: 20 Feb 2025</div></div>
+          <span class="order-status status-processing">⏳ Processing</span>
+        </div>
+        <div class="order-items">
+          <div class="order-item">
+            <div class="order-item-img" style="background:#fffde8"><img src="src/rose gold.webp"></div>
+            <div class="order-item-info"><div class="name">Rose Gold Hoop Earrings</div><div class="price">₹2,499</div></div>
+          </div>
+        </div>
+        <div class="order-footer">
+          <div class="order-total">Total: ₹2,499</div>
+          <div class="order-actions">
+            <button class="btn-sm" onclick="showToast('❌ Cancellation requested')">Cancel Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WISHLIST -->
+    <div id="wishlist" class="content-section" style="display:none;">
+      <div class="section-title">❤️ My Wishlist (4 items)</div>
+      <div class="wish-grid">
+        <div class="wish-card">
+          <div class="wish-img" style="background:#fde8f0"><img src="src/kurti.webp"></div>
+          <div class="wish-info">
+            <div class="wish-name">Floral Anarkali Kurta Set</div>
+            <div class="wish-price">₹799 <span style="font-size:11px;color:var(--gray);text-decoration:line-through;font-weight:400;">₹1,999</span></div>
+            <button class="wish-add" onclick="showToast('🛒 Added to Cart!')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="wish-card">
+          <div class="wish-img" style="background:#e8f4fd"><img src="src/samsungbud.webp"></div>
+          <div class="wish-info">
+            <div class="wish-name">Samsung Galaxy Buds 3</div>
+            <div class="wish-price">₹4,999 <span style="font-size:11px;color:var(--gray);text-decoration:line-through;font-weight:400;">₹9,999</span></div>
+            <button class="wish-add" onclick="showToast('🛒 Added to Cart!')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="wish-card">
+          <div class="wish-img" style="background:#fffde8"><img src="src/rose gold.webp"></div>
+          <div class="wish-info">
+            <div class="wish-name">Rose Gold Hoop Earrings</div>
+            <div class="wish-price">₹2,499 <span style="font-size:11px;color:var(--gray);text-decoration:line-through;font-weight:400;">₹4,999</span></div>
+            <button class="wish-add" onclick="showToast('🛒 Added to Cart!')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="wish-card">
+          <div class="wish-img" style="background:#f0ffe8"><img src="src/vitamin c.webp"></div>
+          <div class="wish-info">
+            <div class="wish-name">Vitamin C Serum 30ml</div>
+            <div class="wish-price">₹349 <span style="font-size:11px;color:var(--gray);text-decoration:line-through;font-weight:400;">₹699</span></div>
+            <button class="wish-add" onclick="showToast('🛒 Added to Cart!')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDRESSES -->
+    <div id="addresses" class="content-section" style="display:none;">
+      <div class="section-title">📍 Saved Addresses</div>
+      <div class="addr-grid">
+        <div class="addr-card default">
+          <div class="addr-tag">DEFAULT</div>
+          <div class="addr-name">Priya Sharma</div>
+          <div class="addr-text">42, Andheri West, Near Infinity Mall<br>Mumbai, Maharashtra – 400053<br>📞 +91 98765 43210</div>
+          <div class="addr-actions">
+            <button class="btn-sm" onclick="showToast('✏️ Opening address editor...')">Edit</button>
+            <button class="btn-sm" onclick="showToast('🗑 Address removed')">Remove</button>
+          </div>
+        </div>
+        <div class="addr-card">
+          <div class="addr-name">Priya Sharma (Office)</div>
+          <div class="addr-text">SHE Tech Park, Tower B, 5th Floor<br>Bandra Kurla Complex<br>Mumbai, Maharashtra – 400051<br>📞 +91 98765 43210</div>
+          <div class="addr-actions">
+            <button class="btn-sm" onclick="showToast('✏️ Opening address editor...')">Edit</button>
+            <button class="btn-sm rose" onclick="showToast('✅ Set as default address!')">Set Default</button>
+          </div>
+        </div>
+      </div>
+      <button onclick="showToast('➕ Opening add address form...')" style="margin-top:16px;background:none;border:2px dashed var(--border);border-radius:12px;padding:16px 24px;font-size:14px;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;color:var(--gray);transition:border-color .2s;" onmouseover="this.style.borderColor='var(--rose)'" onmouseout="this.style.borderColor='var(--border)'">+ Add New Address</button>
+    </div>
+
+    <!-- PROFILE -->
+    <div id="profile" class="content-section" style="display:none;">
+      <div class="section-title">👤 My Profile</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">First Name</label>
+          <input id="firstName" value="Priya" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">Last Name</label>
+          <input id="lastName" value="Sharma" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">Email</label>
+          <input id="email" value="priya.sharma@email.com" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">Phone</label>
+          <input value="+91 98765 43210" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">Date of Birth</label>
+          <input type="date" value="1995-06-15" style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--gray);display:block;margin-bottom:6px;">Gender</label>
+          <select style="width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;">
+            <option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="saveProfile()" style="margin-top:20px;background:var(--rose);color:#fff;border:none;padding:12px 32px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Save Changes</button>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div id="payments" class="content-section" style="display:none;">
+      <div class="section-title">💳 Saved Payment Methods</div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:12px;display:flex;align-items:center;gap:16px;">
+        <div style="background:#1a3a6b;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;">VISA</div>
+        <div>
+          <div style="font-weight:600;">•••• •••• •••• 4532</div>
+          <div style="font-size:12px;color:var(--gray);">Expires 08/27 · Priya Sharma</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:8px;">
+          <button class="btn-sm">Edit</button>
+          <button class="btn-sm" onclick="showToast('🗑 Card removed')">Remove</button>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:12px;display:flex;align-items:center;gap:16px;">
+        <div style="background:#ff6b00;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;">UPI</div>
+        <div>
+          <div style="font-weight:600;">priya.sharma@okaxis</div>
+          <div style="font-size:12px;color:var(--gray);">Axis Bank UPI</div>
+        </div>
+        <div style="margin-left:auto;"><button class="btn-sm" onclick="showToast('🗑 UPI removed')">Remove</button></div>
+      </div>
+      <button onclick="showToast('➕ Add payment method...')" style="background:none;border:2px dashed var(--border);border-radius:12px;padding:16px 24px;font-size:14px;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;color:var(--gray);">+ Add Payment Method</button>
+    </div>
+
+    <!-- RETURNS -->
+    <div id="returns" class="content-section" style="display:none;">
+      <div class="section-title">🔄 Returns & Refunds</div>
+      <div style="background:#d4edda;border-radius:10px;padding:14px 18px;font-size:13px;color:#155724;margin-bottom:20px;">✅ Refund of ₹799 for Order #SHE-2025-76543 has been processed to your account.</div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-weight:600;">Return #RTN-8723</div>
+            <div style="font-size:12px;color:var(--gray);">Floral Kurta Set · Requested 3 Mar 2025</div>
+          </div>
+          <span style="background:#d4edda;color:#155724;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">Refund Processed</span>
+        </div>
+        <div style="font-size:13px;color:var(--gray);">Refund of <strong>₹799</strong> credited to your original payment method within 5-7 business days.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="index.html">SHE.in</a> — Made with SHE.in in India</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="javascript/account.js"></script>
+
+</body>
+</html>

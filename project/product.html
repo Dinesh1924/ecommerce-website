@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product – SHE.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+
+<div class="topbar">🎉 Free delivery on orders above ₹499 &nbsp;|&nbsp; <span>Use SHE50</span> for 50% OFF your first order</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.</span>in</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more..." />
+      <button>🔍</button>
+    </div>
+    <div class="header-actions">
+      <a href="account.html" class="hbtn"><span class="icon">👤</span><strong>Account</strong></a>
+      <a href="orders.html" class="hbtn"><span class="icon">📦</span><strong>Orders</strong></a>
+      <a href="cart.html" class="hbtn"><span class="icon">🛒<span class="cart-count" id="cartCount">0</span></span><strong>Cart</strong></a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a>
+    <a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a>
+    <a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a>
+    <a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a>
+    <a href="category.html?cat=jewellery" class="nav-link">💍 Jewellery</a>
+    <a href="category.html?cat=sports" class="nav-link">⚽ Sports</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">SHE.in</a> › <a href="category.html?cat=fashion">Fashion</a> › <a href="category.html?cat=fashion">Women's Kurtas</a> › <span id="prodBreadName">Product</span>
+</div>
+
+<div class="prod-wrap">
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="main-img" id="mainImg">
+      <span id="mainEmoji">👗</span>
+      <button class="zoom-btn">🔍 Zoom</button>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+
+  <!-- PRODUCT INFO -->
+  <div class="prod-info-panel">
+    <div class="brand-tag" id="prodBrand">W for Woman</div>
+    <h1 class="prod-title" id="prodTitle">Floral Anarkali Kurta Set with Dupatta</h1>
+    <div class="rating-row">
+      <div class="stars" id="prodStars">★ 4.5</div>
+      <span id="prodReviews">2,341 ratings</span>
+      <a href="#reviews">Write a Review</a>
+    </div>
+
+    <div class="price-row">
+      <span class="price-big" id="prodPrice">₹799</span>
+      <span class="price-was" id="prodWas">₹1,999</span>
+      <span class="price-off" id="prodOff">60% off</span>
+    </div>
+    <p class="price-note">Inclusive of all taxes. <strong>Free delivery</strong> on this order.</p>
+
+    <div class="bank-offer">💳 10% instant discount with SHE Pay Card. Up to ₹1,500 off.</div>
+
+    <hr class="divider">
+
+    <div class="option-label">Select Size</div>
+    <div class="size-row">
+      <button class="size-btn" onclick="selectSize(this)">XS</button>
+      <button class="size-btn active" onclick="selectSize(this)">S</button>
+      <button class="size-btn" onclick="selectSize(this)">M</button>
+      <button class="size-btn" onclick="selectSize(this)">L</button>
+      <button class="size-btn" onclick="selectSize(this)">XL</button>
+      <button class="size-btn" onclick="selectSize(this)">XXL</button>
+    </div>
+
+    <div class="option-label">Select Color</div>
+    <div class="color-row">
+      <div class="color-swatch active" style="background:#e8175d" title="Rose Red" onclick="selectColor(this,'🥻','#fde8f0')"></div>
+      <div class="color-swatch" style="background:#2d1b69" title="Royal Purple" onclick="selectColor(this,'👗','#f0e8fd')"></div>
+      <div class="color-swatch" style="background:#1a5276" title="Navy Blue" onclick="selectColor(this,'👔','#e8f4fd')"></div>
+      <div class="color-swatch" style="background:#1e8449" title="Emerald Green" onclick="selectColor(this,'🥗','#e8fde8')"></div>
+      <div class="color-swatch" style="background:#f5a623" title="Saffron" onclick="selectColor(this,'🧡','#fffde8')"></div>
+    </div>
+
+    <div class="qty-row">
+      <label>Quantity:</label>
+      <div class="qty-ctrl">
+        <button onclick="changeQty(-1)">−</button>
+        <span id="qty">1</span>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-cart" onclick="addToCart()">🛒 Add to Cart</button>
+      <button class="btn-buy" onclick="buyNow()">⚡ Buy Now</button>
+    </div>
+
+    <button onclick="toggleWishlist(this)" style="background:none;border:2px solid var(--border);border-radius:50px;padding:10px 24px;font-size:14px;cursor:pointer;width:100%;margin-bottom:16px;font-family:'DM Sans',sans-serif;transition:all .2s;" id="wishBtn">♡ Add to Wishlist</button>
+
+    <div class="delivery-info">
+      <div class="row"><span class="icon">🚚</span> <span><strong>Free Delivery</strong> by Tomorrow, if ordered in next 3 hours</span></div>
+      <div class="row"><span class="icon">🔄</span> <span><strong>10-Day Easy Returns</strong> — No questions asked</span></div>
+      <div class="row"><span class="icon">✅</span> <span><strong>100% Authentic</strong> — Sold & fulfilled by SHE.in</span></div>
+    </div>
+
+    <div class="highlights">
+      <h4>Product Highlights</h4>
+      <ul>
+        <li>Premium cotton blend fabric — light & breathable</li>
+        <li>Machine washable, easy care instructions</li>
+        <li>Includes matching dupatta & inner lining</li>
+        <li>Handcrafted block print design</li>
+        <li>Available in 5 vibrant colors</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TABS SECTION -->
+<div class="tabs-section">
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('desc',this)">Description</div>
+    <div class="tab" onclick="switchTab('specs',this)">Specifications</div>
+    <div class="tab" onclick="switchTab('reviews',this)">Reviews (2,341)</div>
+  </div>
+
+  <div id="desc" class="tab-pane active">
+    <div style="background:#fff;border-radius:14px;padding:28px;line-height:1.8;font-size:14px;color:var(--charcoal);">
+      <p>Celebrate your femininity with this exquisitely crafted <strong>Floral Anarkali Kurta Set</strong> from W for Woman. Designed for the modern Indian woman, this ensemble blends traditional artistry with contemporary silhouettes.</p>
+      <br>
+      <p>The full-length anarkali kurta features a delicate block-print floral pattern across premium cotton fabric, ensuring comfort through the day while keeping you effortlessly stylish. The flowing A-line cut flatters all body types and the concealed side zip makes it easy to wear.</p>
+      <br>
+      <p>Paired with a complementing dupatta and palazzo pants, this set is perfect for festive occasions, family gatherings, office wear, or casual outings. Dress it up with heels and statement earrings, or keep it relaxed with flats and a tote.</p>
+    </div>
+  </div>
+
+  <div id="specs" class="tab-pane">
+    <div style="background:#fff;border-radius:14px;padding:28px;">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);width:200px;">Brand</td><td style="padding:12px;font-weight:500;">W for Woman</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Fabric</td><td style="padding:12px;font-weight:500;">Cotton Blend (70% Cotton, 30% Polyester)</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Style</td><td style="padding:12px;font-weight:500;">Anarkali Kurta Set with Dupatta</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Fit Type</td><td style="padding:12px;font-weight:500;">Regular Fit, A-Line</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Occasion</td><td style="padding:12px;font-weight:500;">Festive, Casual, Office</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Wash Care</td><td style="padding:12px;font-weight:500;">Machine Wash, Gentle Cycle</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:12px;color:var(--gray);">Country of Origin</td><td style="padding:12px;font-weight:500;">India 🇮🇳</td></tr>
+        <tr><td style="padding:12px;color:var(--gray);">Seller</td><td style="padding:12px;font-weight:500;">SHE.in Retail Pvt. Ltd.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="reviews" class="tab-pane">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;">
+      <div style="background:#fff;border-radius:14px;padding:24px;text-align:center;">
+        <div style="font-size:64px;font-weight:900;font-family:'Playfair Display',serif;color:var(--charcoal);">4.5</div>
+        <div style="color:var(--gold);font-size:24px;margin-bottom:8px;">★★★★½</div>
+        <div style="font-size:13px;color:var(--gray);">2,341 ratings</div>
+        <hr style="margin:16px 0;border:none;border-top:1px solid var(--border);">
+        <div style="font-size:13px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="width:40px;text-align:right;color:var(--gray);">5 ★</span><div style="flex:1;background:#eee;border-radius:4px;height:8px;overflow:hidden;"><div style="width:65%;background:var(--gold);height:100%;"></div></div><span style="width:30px;color:var(--gray);">65%</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="width:40px;text-align:right;color:var(--gray);">4 ★</span><div style="flex:1;background:#eee;border-radius:4px;height:8px;overflow:hidden;"><div style="width:20%;background:var(--gold);height:100%;"></div></div><span style="width:30px;color:var(--gray);">20%</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="width:40px;text-align:right;color:var(--gray);">3 ★</span><div style="flex:1;background:#eee;border-radius:4px;height:8px;overflow:hidden;"><div style="width:10%;background:var(--gold);height:100%;"></div></div><span style="width:30px;color:var(--gray);">10%</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="width:40px;text-align:right;color:var(--gray);">2 ★</span><div style="flex:1;background:#eee;border-radius:4px;height:8px;overflow:hidden;"><div style="width:3%;background:var(--rose);height:100%;"></div></div><span style="width:30px;color:var(--gray);">3%</span></div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="width:40px;text-align:right;color:var(--gray);">1 ★</span><div style="flex:1;background:#eee;border-radius:4px;height:8px;overflow:hidden;"><div style="width:2%;background:var(--rose);height:100%;"></div></div><span style="width:30px;color:var(--gray);">2%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">P</div>
+            <div><div style="font-weight:600;font-size:14px;">Priya Sharma</div><div class="review-stars">★★★★★</div></div>
+            <div style="margin-left:auto;font-size:12px;color:var(--gray);">Verified Purchase · 2 days ago</div>
+          </div>
+          <div class="review-text">Absolutely love this kurta! The fabric is so soft and the colours are vibrant. Fits true to size, I got a medium and it's perfect. Will definitely buy more colours!</div>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#2d1b69;">A</div>
+            <div><div style="font-weight:600;font-size:14px;">Anjali Mehta</div><div class="review-stars">★★★★☆</div></div>
+            <div style="margin-left:auto;font-size:12px;color:var(--gray);">Verified Purchase · 1 week ago</div>
+          </div>
+          <div class="review-text">Beautiful design and great quality for the price. The dupatta is a lovely bonus. Delivery was super fast — received in 1 day! Minus one star because the colour is slightly different from the photo.</div>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#1e8449;">R</div>
+            <div><div style="font-weight:600;font-size:14px;">Roshni Patel</div><div class="review-stars">★★★★★</div></div>
+            <div style="margin-left:auto;font-size:12px;color:var(--gray);">Verified Purchase · 2 weeks ago</div>
+          </div>
+          <div class="review-text">Bought this for Diwali and received so many compliments! The stitching is excellent and the block print is hand-crafted. Highly recommend to anyone looking for ethnic wear!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<div style="max-width:1400px;margin:0 auto;padding:0 24px 48px;">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;">You May Also Like</h2>
+    <a href="category.html?cat=fashion" style="color:var(--rose);font-size:13px;font-weight:600;text-decoration:none;">See all →</a>
+  </div>
+  <div class="related-grid" id="relatedGrid"></div>
+</div>
+
+<footer>
+  <div style="max-width:1400px;margin:0 auto;">
+    <p>© 2025 <a href="index.html">SHE.in</a> — Made with 💖 in India | <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Help</a></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="javascript/product.js"></script>
+<script src="javascript/cart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHE.in – India's Favourite Online Shopping Destination</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">🎉 Free delivery on orders above ₹499 &nbsp;|&nbsp; <span>Use SHE50</span> for 50% OFF your first order &nbsp;|&nbsp; 🛍 New arrivals every Friday!</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.in</span></a>
+    <div class="location-box">
+      <span>Deliver to</span>
+      <strong>📍 Chennai 600001</strong>
+    </div>
+    <div class="search-bar">
+      <select>
+        <option>All</option>
+        <option>Fashion</option>
+        <option>Beauty</option>
+        <option>Electronics</option>
+        <option>Home</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search for products, brands and more..." />
+      <button onclick="doSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="header-actions">
+      <a href="account.html" class="hbtn">
+        <span class="icon"><i class="fa-regular fa-user"></i></span>
+        <div><div style="font-size:11px;opacity:.8">Hello, Sign in</div><strong>Account & Lists</strong></div>
+      </a>
+<div class="hbtn dropdown">
+  <span class="icon">📦</span>
+  <div>
+    <div style="font-size:11px;opacity:.8">Returns &</div>
+    <strong>Orders</strong>
+  </div>
+
+  <!-- Dropdown box -->
+  <div class="dropdown-menu">
+    <a href="account.html?section=orders">My Orders</a>
+    <a href="account.html?section=returns">Refunds</a>
+  </div>
+</div>
+      <a href="cart.html" class="hbtn">
+        <span class="icon"><i class="fa-solid fa-cart-arrow-down"></i><span class="cart-count" id="cartCount">0</span></span>
+        <strong>Cart</strong>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-link" onclick="showToast('🔥 Opening Today\'s Deals!')">🔥 Today's Deals</a>
+    <a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a>
+    <a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a>
+    <a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a>
+    <a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a>
+    <a href="category.html?cat=jewellery" class="nav-link">💍 Jewellery</a>
+    <a href="category.html?cat=sports" class="nav-link">⚽ Sports</a>
+    <a href="category.html?cat=kids" class="nav-link">🧸 Kids</a>
+    <a href="category.html?cat=grocery" class="nav-link">🛒 Grocery</a>
+    <a href="#" class="nav-link hot" onclick="showToast('✨ SHE Prime coming soon!')">⭐ SHE Prime</a>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<div class="hero">
+  <div class="slides" id="slides">
+    <div class="slide slide-1">
+      <div class="slide-content">
+        <div class="slide-tag">New Season, New You</div>
+        <h1>Summer '26<br>Collection</h1>
+        <p>Discover 10,000+ new styles curated just for you. Express yourself boldly.</p>
+        <a href="category.html?cat=fashion" class="btn-hero btn-rose">Shop Now</a>
+      </div>
+      <div class="slide-deco">👗</div>
+    </div>
+    <div class="slide slide-2">
+      <div class="slide-content">
+        <div class="slide-tag">Beauty Essentials</div>
+        <h1>Glow Up<br>Season</h1>
+        <p>Top skincare & makeup brands at unbeatable prices. Your skin deserves the best.</p>
+        <a href="category.html?cat=beauty" class="btn-hero btn-rose">Explore Beauty</a>
+      </div>
+      <div class="slide-deco">💄</div>
+    </div>
+    <div class="slide slide-3">
+      <div class="slide-content">
+        <div class="slide-tag">Electronics Sale</div>
+        <h1>Tech for<br>Her</h1>
+        <p>Smartphones, earbuds, laptops & more — up to 60% off on premium brands.</p>
+        <a href="category.html?cat=electronics" class="btn-hero btn-gold">Shop Electronics</a>
+      </div>
+      <div class="slide-deco">📱</div>
+    </div>
+  </div>
+  <button class="hero-arrow hero-prev" onclick="changeSlide(-1)">‹</button>
+  <button class="hero-arrow hero-next" onclick="changeSlide(1)">›</button>
+  <div class="hero-dots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+  </div>
+</div>
+
+<!-- CATEGORY STRIP -->
+<div class="cat-strip">
+  <div class="cat-inner">
+    <div class="cat-item" onclick="location.href='category.html?cat=fashion'">
+      <div class="cat-circle" style="background:#fde8f0">👗</div>
+      <span>Women's Fashion</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=beauty'">
+      <div class="cat-circle" style="background:#fff0f5">💄</div>
+      <span>Beauty</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=electronics'">
+      <div class="cat-circle" style="background:#e8f4fd">📱</div>
+      <span>Electronics</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=home'">
+      <div class="cat-circle" style="background:#e8fde8">🏠</div>
+      <span>Home & Living</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=jewellery'">
+      <div class="cat-circle" style="background:#fffde8">💍</div>
+      <span>Jewellery</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=sports'">
+      <div class="cat-circle" style="background:#f0f8ff">⚽</div>
+      <span>Sports</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=kids'">
+      <div class="cat-circle" style="background:#fdf5e8">🧸</div>
+      <span>Kids</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=shoes'">
+      <div class="cat-circle" style="background:#f5e8fd">👠</div>
+      <span>Footwear</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=bags'">
+      <div class="cat-circle" style="background:#fde8e8">👜</div>
+      <span>Bags</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=grocery'">
+      <div class="cat-circle" style="background:#e8fdee">🛒</div>
+      <span>Grocery</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=wellness'">
+      <div class="cat-circle" style="background:#fde8fd">🌿</div>
+      <span>Wellness</span>
+    </div>
+    <div class="cat-item" onclick="location.href='category.html?cat=books'">
+      <div class="cat-circle" style="background:#e8eafd">📚</div>
+      <span>Books</span>
+    </div>
+  </div>
+</div>
+
+<!-- DEALS TIMER -->
+<div class="deals-strip">
+  <div class="deals-inner">
+    <div class="deal-timer">
+      <h3>⚡ Lightning Deals</h3>
+      <span style="opacity:.6;font-size:13px">Ends in:</span>
+      <div class="timer-box">
+        <div class="timer-unit"><span class="num" id="th">03</span><span class="lbl">Hrs</span></div>
+        <div class="timer-unit"><span class="num" id="tm">45</span><span class="lbl">Min</span></div>
+        <div class="timer-unit"><span class="num" id="ts">00</span><span class="lbl">Sec</span></div>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; gap:12px; overflow-x:auto;">
+      <a href="product.html?id=10" style="background:rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;color:#fff;text-decoration:none;white-space:nowrap;font-size:13px;display:flex;align-items:center;gap:8px;">📱 iPhone 15 <span style="color:var(--gold)">-55%</span></a>
+      <a href="product.html?id=2" style="background:rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;color:#fff;text-decoration:none;white-space:nowrap;font-size:13px;display:flex;align-items:center;gap:8px;">💄 Lakme Kit <span style="color:var(--gold)">-60%</span></a>
+      <a href="product.html?id=6" style="background:rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;color:#fff;text-decoration:none;white-space:nowrap;font-size:13px;display:flex;align-items:center;gap:8px;">👗 Saree Set <span style="color:var(--gold)">-70%</span></a>
+      <a href="product.html?id=5" style="background:rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;color:#fff;text-decoration:none;white-space:nowrap;font-size:13px;display:flex;align-items:center;gap:8px;">🎧 AirPods <span style="color:var(--gold)">-45%</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- PROMO BANNERS -->
+<div class="section">
+  <div class="promo-grid">
+    <a href="category.html?cat=fashion" class="promo-card pc-1">
+      <div class="tag">New Arrivals</div>
+      <h3>Summer Wardrobe Refresh</h3>
+      <p>Over 5,000 new styles. Free shipping on orders above ₹499.</p>
+      <div class="shop-link">Shop Fashion →</div>
+      <div class="bg-icon">👗</div>
+    </a>
+    <a href="category.html?cat=beauty" class="promo-card pc-2">
+      <div class="tag">Beauty Sale</div>
+      <h3>Up to 60% Off on Premium Beauty</h3>
+      <p>Skincare, makeup & haircare from top brands.</p>
+      <div class="shop-link">Shop Beauty →</div>
+      <div class="bg-icon">💄</div>
+    </a>
+    <a href="category.html?cat=electronics" class="promo-card pc-3">
+      <div class="tag">Tech Deals</div>
+      <h3>Electronics at Rock-Bottom Prices</h3>
+      <p>No-cost EMI & exchange offers available.</p>
+      <div class="shop-link">Shop Electronics →</div>
+      <div class="bg-icon">📱</div>
+    </a>
+  </div>
+</div>
+
+<!-- TRENDING PRODUCTS -->
+<div class="section">
+  <div class="sec-head">
+    <h2>🔥 Trending Right Now</h2>
+    <a href="category.html?cat=trending">See all →</a>
+  </div>
+  <div class="prod-grid" id="trendingGrid"></div>
+</div>
+
+<!-- BEST SELLERS -->
+<div class="section">
+  <div class="sec-head">
+    <h2>⭐ Best Sellers</h2>
+    <a href="category.html?cat=bestsellers">See all →</a>
+  </div>
+  <div class="prod-grid" id="bestsellerGrid"></div>
+</div>
+
+<!-- BRAND STRIP -->
+<div class="section">
+  <div class="sec-head">
+    <h2>🏷 Shop by Brand</h2>
+    <a href="#">All Brands →</a>
+  </div>
+  <div class="brand-grid">
+    <a href="category.html?brand=zara" class="brand-card">ZARA</a>
+    <a href="category.html?brand=nykaa" class="brand-card">NYKAA</a>
+    <a href="category.html?brand=apple" class="brand-card">APPLE</a>
+    <a href="category.html?brand=lakme" class="brand-card">LAKMÉ</a>
+    <a href="category.html?brand=samsung" class="brand-card">SAMSUNG</a>
+    <a href="category.html?brand=hm" class="brand-card">H&M</a>
+    <a href="category.html?brand=loreal" class="brand-card">L'ORÉAL</a>
+    <a href="category.html?brand=nike" class="brand-card">NIKE</a>
+    <a href="category.html?brand=mango" class="brand-card">MANGO</a>
+    <a href="category.html?brand=sony" class="brand-card">SONY</a>
+    <a href="category.html?brand=mamaearth" class="brand-card">MAMAEARTH</a>
+    <a href="category.html?brand=puma" class="brand-card">PUMA</a>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>✨ Get Exclusive Offers in Your Inbox</h2>
+  <p>Join 2 million+ SHE shoppers and get early access to sales, new arrivals & style tips</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Enter your email address..." />
+    <button onclick="showToast('🎉 You\'re subscribed! Check your inbox.')">Subscribe</button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:#fff;font-family:'Playfair Display',serif;font-size:28px;font-weight:900;text-decoration:none;">SHE<span style="color:var(--gold)">.</span>in</a>
+        <p>India's favourite destination for fashion, beauty & lifestyle. Empowering women to look and feel their best since 2015.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-solid fa-circle-user"></i></a>
+          <a href="#"><i class="fa-solid fa-camera"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="#">About SHE.in</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">SHE Cares</a></li>
+          <li><a href="#">Investor Relations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Shop With Us</h4>
+        <ul>
+          <li><a href="#">SHE Prime</a></li>
+          <li><a href="#">SHE Business</a></li>
+          <li><a href="#">Sell on SHE.in</a></li>
+          <li><a href="#">Affiliates</a></li>
+          <li><a href="#">Advertise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="orders.html">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Report a Problem</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SHE.in — Made with 💖 in India. All rights reserved.</p>
+      <div class="pay-icons">
+        <div class="pay-icon">VISA</div>
+        <div class="pay-icon">MC</div>
+        <div class="pay-icon">UPI</div>
+        <div class="pay-icon">EMI</div>
+        <div class="pay-icon">COD</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="javascript/script.js"></script>
+</body>
+</html>

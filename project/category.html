@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category – SHE.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+
+<div class="topbar">🎉 Free delivery on orders above ₹499 &nbsp;|&nbsp; <span>Use SHE50</span> for 50% OFF your first order</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">SHE<span>.</span>in</a>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for products, brands and more..." />
+      <button onclick="doSearch()">🔍</button>
+    </div>
+    <div class="header-actions">
+      <a href="account.html" class="hbtn"><span class="icon">👤</span><strong>Account</strong></a>
+      <a href="orders.html" class="hbtn"><span class="icon">📦</span><strong>Orders</strong></a>
+      <a href="cart.html" class="hbtn"><span class="icon">🛒<span class="cart-count" id="cartCount">0</span></span><strong>Cart</strong></a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="category.html?cat=fashion" class="nav-link" id="nav-fashion">👗 Fashion</a>
+    <a href="category.html?cat=beauty" class="nav-link" id="nav-beauty">💄 Beauty</a>
+    <a href="category.html?cat=electronics" class="nav-link" id="nav-electronics">📱 Electronics</a>
+    <a href="category.html?cat=home" class="nav-link" id="nav-home">🏠 Home & Living</a>
+    <a href="category.html?cat=jewellery" class="nav-link" id="nav-jewellery">💍 Jewellery</a>
+    <a href="category.html?cat=sports" class="nav-link" id="nav-sports">⚽ Sports</a>
+    <a href="category.html?cat=kids" class="nav-link" id="nav-kids">🧸 Kids</a>
+  </div>
+</nav>
+
+<div class="page">
+  <!-- SIDEBAR FILTERS -->
+  <aside class="sidebar">
+    <div class="filter-box">
+      <h3>Filters <button onclick="clearFilters()">Clear All</button></h3>
+    </div>
+
+    <div class="filter-box">
+      <h3>Price Range</h3>
+      <input type="range" class="price-range" min="0" max="10000" value="5000" id="priceRange" oninput="updatePriceLabel(this.value)">
+      <div class="price-labels"><span>₹0</span><span id="priceLabel">Up to ₹5,000</span></div>
+    </div>
+
+    <div class="filter-box">
+      <h3>Customer Ratings</h3>
+      <label class="star-filter"><input type="checkbox" value="5" onclick="applyFilters()"> ★★★★★ 5 Star</label>
+      <label class="star-filter"><input type="checkbox" value="4" onclick="applyFilters()"> ★★★★☆ 4 Star & above</label>
+      <label class="star-filter"><input type="checkbox" value="3" onclick="applyFilters()"> ★★★☆☆ 3 Star & above</label>
+    </div>
+
+    <div class="filter-box">
+      <h3>Brand</h3>
+      <div class="filter-option"><input type="checkbox" id="b1"><label for="b1">Zara <span>(142)</span></label></div>
+      <div class="filter-option"><input type="checkbox" id="b2"><label for="b2">H&M <span>(98)</span></label></div>
+      <div class="filter-option"><input type="checkbox" id="b3"><label for="b3">Fabindia <span>(213)</span></label></div>
+      <div class="filter-option"><input type="checkbox" id="b4"><label for="b4">W for Woman <span>(187)</span></label></div>
+      <div class="filter-option"><input type="checkbox" id="b5"><label for="b5">Mango <span>(76)</span></label></div>
+      <div class="filter-option"><input type="checkbox" id="b6"><label for="b6">Nykaa Fashion <span>(334)</span></label></div>
+    </div>
+
+    <div class="filter-box">
+      <h3>Discount</h3>
+      <div class="filter-option"><input type="checkbox" id="d1"><label for="d1">50% or more</label></div>
+      <div class="filter-option"><input type="checkbox" id="d2"><label for="d2">40% or more</label></div>
+      <div class="filter-option"><input type="checkbox" id="d3"><label for="d3">30% or more</label></div>
+    </div>
+
+    <div class="filter-box">
+      <h3>Availability</h3>
+      <div class="filter-option"><input type="checkbox" id="av1"><label for="av1">In Stock</label></div>
+      <div class="filter-option"><input type="checkbox" id="av2"><label for="av2">SHE Prime Eligible</label></div>
+      <div class="filter-option"><input type="checkbox" id="av3"><label for="av3">Free Delivery</label></div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="results-header">
+      <div>
+        <h1 id="pageTitle">Women's Fashion</h1>
+        <div class="count" id="resultCount">Showing 1–24 of 4,832 results</div>
+      </div>
+      <div class="sort-bar">
+        <label>Sort by:</label>
+        <select onchange="sortProducts(this.value)">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Avg. Customer Reviews</option>
+          <option value="new">Newest Arrivals</option>
+          <option value="discount">Best Discount</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-chips" id="chips"></div>
+
+    <div class="prod-grid" id="prodGrid"></div>
+
+    <div class="pagination">
+      <button class="page-btn" onclick="changePage(curPage-1)">‹</button>
+      <button class="page-btn active" id="p1" onclick="changePage(1)">1</button>
+      <button class="page-btn" id="p2" onclick="changePage(2)">2</button>
+      <button class="page-btn" id="p3" onclick="changePage(3)">3</button>
+      <button class="page-btn" id="p4" onclick="changePage(4)">4</button>
+      <button class="page-btn" id="p5" onclick="changePage(5)">5</button>
+      <button class="page-btn" onclick="changePage(curPage+1)">›</button>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 <a href="index.html">SHE.in</a> — Made with 💖 in India | <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="javascript/category.js"></script>
+<script src="javascript/cart.js"></script>
+
+
+</body>
+</html>
